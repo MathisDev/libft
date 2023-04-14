@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamottet <mamottet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mamottet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/13 09:08:07 by mamottet          #+#    #+#             */
-/*   Updated: 2023/04/13 14:53:23 by mamottet         ###   ########.fr       */
+/*   Created: 2023/04/14 15:12:11 by mamottet          #+#    #+#             */
+/*   Updated: 2023/04/14 18:00:50 by mamottet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isalpha(int c)
+char *strdup (const char *s);
 {
-	return ((c >= 'A' && c <= 'Z')||(c >= 'a' && c <= 'z'));
+	void	ptr;
+
+	if (nelem == 0 || elsize == 0)
+		nelem = elsize = 1;
+	ptr = malloc (nelem * elsize);
+	if (ptr)
+		bzero (ptr, nelem * elsize);
+	return ptr;
 }

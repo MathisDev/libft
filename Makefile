@@ -1,25 +1,61 @@
-SRC	= *.c
+#***************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mamottet <mamottet@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/04/11 13:06:31 by mamottet          #+#    #+#              #
+#    Updated: 2023/04/14 17:16:36 by mamottet         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-SRCO	=$(SRC:.c=.o)
+# -- Commande -- #
 
+RM	= rm
 CC	= gcc
 FL	= -Wall -Werror -Wextra
-NAME	= libft.a
 COMP	= $(CC) $(FL)
 
+# -- SRC -- #
+
+SRC =	ft_isalnum.c \
+	ft_isalpha.c \
+	ft_isascii.c \
+	ft_isdigit.c \
+	ft_isprint.c \
+	ft_memchr.c \
+	ft_memcmp.c \
+	ft_memcpy.c \
+	ft_memmove.c \
+	ft_memset.c \
+	ft_atoi.c \
+	ft_bzero.c \
+	ft_strchr.c \
+	ft_strlcat.c \
+	ft_strlcpy.c \
+	ft_strlen.c \
+	ft_strncmp.c \
+	ft_strnstr.c \
+	ft_strrchr.c \
+	ft_tolower.c \
+	ft_toupper.c 
+
+SRCO	= $(SRC:.c=.o)
+
+NAME	= libft.a
+
+# -- Target -- #
+
+all:			$(NAME)
+
+$(NAME):		$(SRCO)
+				ar rcs $(NAME) $(SRCO)
+
 clean:
-	rm -f prog
-	rm -f *.o
-	rm -f *.a
+				$(RM) $(SRCO)
 
-lib:
-	$(COMP) -c $(SRC)
-	ar rcs $(NAME) $(SRCO)
+fclean:	
+			$(RM) $(NAME) $(SRCO)
 
-m:
-	$(COMP) main.c -L. libft.a -o prog
-	./prog
-q:
-	make clean
-	make lib
-	make m
+re:				fclean $(NAME)
