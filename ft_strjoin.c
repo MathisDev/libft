@@ -1,25 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamottet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/14 15:12:11 by mamottet          #+#    #+#             */
-/*   Updated: 2023/04/17 14:14:30 by mamottet         ###   ########.fr       */
+/*   Created: 2023/04/17 13:46:58 by mamottet          #+#    #+#             */
+/*   Updated: 2023/04/17 13:48:47 by mamottet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *strdup (const char *s);
+char
+	*ft_strjoin(char const *s1, char const *s2)
 {
-	void	str;
+	char	*str;
+	size_t	count_s;
+	size_t	count_str;
 
-	if (nelem == 0 || elsize == 0)
-		nelem = elsize = 1;
-	str = malloc (nelem * elsize);
-	if (str)
-		bzero (str, nelem * elsize);
-	return str;
+	str = (char*)malloc(
+		sizeof(*s1) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!str)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s1[count_s])
+	{
+		str[count_str++] = s1[count_s];
+		count_s++;
+	}
+	i = 0;
+	while (s2[count_s])
+	{
+		str[count_str++] = s2[count_s];
+		count_s++;
+	}
+	str[count_str] = 0;
+	return (str);
 }
+

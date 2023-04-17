@@ -1,25 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamottet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/14 15:12:11 by mamottet          #+#    #+#             */
-/*   Updated: 2023/04/17 14:14:30 by mamottet         ###   ########.fr       */
+/*   Created: 2023/04/17 13:54:02 by mamottet          #+#    #+#             */
+/*   Updated: 2023/04/17 13:54:28 by mamottet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *strdup (const char *s);
+static int
+	ft_abs(int nbr)
 {
-	void	str;
+	return ((nbr < 0) ? -nbr : nbr);
+}
 
-	if (nelem == 0 || elsize == 0)
-		nelem = elsize = 1;
-	str = malloc (nelem * elsize);
-	if (str)
-		bzero (str, nelem * elsize);
-	return str;
+void	ft_putnbr_fd(int n, int fd)
+{
+	char	str[13];
+	int		is_neg;
+	int		length;
+
+	is_neg = (n < 0);
+	ft_bzero(str, 13);
+	if (n == 0)
+		str[0] = '0';
+	length = 0;
+	while (n != 0)
+	{
+		str[length++] = '0' + ft_abs(n % 10);
+		n = (n / 10);
+	}
+	if (is_neg)
+		str[length] = '-';
+	else if (length > 0)
+		length--;
+	while (length >= 0)
+		write(fd, &str[length--], 1);
 }
