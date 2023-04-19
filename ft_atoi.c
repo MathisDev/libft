@@ -6,13 +6,13 @@
 /*   By: mamottet <mamottet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 09:05:22 by mamottet          #+#    #+#             */
-/*   Updated: 2023/04/13 14:58:18 by mamottet         ###   ########.fr       */
+/*   Updated: 2023/04/18 17:40:07 by Onizukkka        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int atoi(const char *nptr)
+int	ft_atoi(const char *nptr)
 {
 	int	i;
 	int	is_neg;

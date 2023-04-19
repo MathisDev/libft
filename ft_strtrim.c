@@ -6,46 +6,45 @@
 /*   By: mamottet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:58:01 by mamottet          #+#    #+#             */
-/*   Updated: 2023/04/17 21:15:20 by mamottet         ###   ########.fr       */
+/*   Updated: 2023/04/19 02:37:11 by Onizukkka        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strtrim(char const *s1, char const *set)
-{
-	size_t	count_s1;
-	size_t	count_set;
-	size_t	count_tmp_s1;
-	size_t	count_tmp_set;
-	size_t	count_strtrim;
-	char	*strtrim;
+# include "libft.h"
 
-	count_s1 = 0;
-	count_set = 0;
-	count_tmp = 0;
-	while(s1[count_s1] != '\0')
+static int	if_set(char c, char const *set)
+{
+	size_t	count;
+
+	count = 0;
+	while (set[count])
 	{
-		if (s1[count_s1] == set[count_set])
-		{
-			count_tmp_s1 = count_s1
-			count_tmp_set = count_set;
-			while (s1[count_tmp_s1] != '\0')
-			{
-				if(set[count_tmp_set] != '\0')
-					count_s1 = count_tmp_s1;
-				if(s1[count_tmp_s1] == set[count_tmp_set])
-				{
-					count_tmp_s1 ++;
-					count_tmp_set ++;
-				}
-				else
-					break;
-			}
-		}
-		strtrim[count_strtrim] = s1[count_s1];
-		count_s1 ++;
-		count_strtrim ++;
+		if (set[count] == c)
+			return (1);
+		count++;
 	}
-	strtrim = (char) malloc(ft_strlen(strtrim) * sizeof(char));
-	return(strtrim);
-	
+	return (0);
+}
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	char	*str;
+	size_t	count;
+	size_t	start;
+	size_t	end;
+
+	start = 0;
+	while (s1[start] && if_set(s1[start], set))
+		start++;
+	end = ft_strlen(s1);
+	while (end > start && if_set(s1[end - 1], set))
+		end--;
+	str = (char*)malloc(sizeof(*s1) * (end - start + 1));
+	if (!str)
+		return (NULL);
+	count = 0;
+	while (start < end)
+		str[count++] = s1[start++];
+	str[count] = 0;
+	return (str);
 }

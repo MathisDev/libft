@@ -6,7 +6,7 @@
 /*   By: mamottet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 14:10:38 by mamottet          #+#    #+#             */
-/*   Updated: 2023/04/17 14:10:44 by mamottet         ###   ########.fr       */
+/*   Updated: 2023/04/19 07:41:25 by Onizukkka        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	const char	str = '\n';
-
-	write(fd, s, ft_strlen(s));
-	write(fd, &nl, 1);
+	if (!s && fd < 0)
+		return ;
+	ft_putstr_fd(s,fd);
+	write(fd, "\n", 1);
 }

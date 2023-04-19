@@ -6,13 +6,13 @@
 /*   By: mamottet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:25:40 by mamottet          #+#    #+#             */
-/*   Updated: 2023/04/17 17:52:03 by mamottet         ###   ########.fr       */
+/*   Updated: 2023/04/18 18:51:39 by Onizukkka        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putendl_fd(char *s, int fd)
+void	ft_putchar_fd(char c, int fd)
 {
-	write(fd, &s, 1);
+	write(fd, &c, 1);
 }

@@ -6,13 +6,13 @@
 /*   By: mamottet <mamottet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 09:09:22 by mamottet          #+#    #+#             */
-/*   Updated: 2023/04/13 18:21:05 by mamottet         ###   ########.fr       */
+/*   Updated: 2023/04/18 17:33:36 by Onizukkka        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    *memchr(const void *s, int c, size_t n)
+void    *ft_memchr(const void *s, int c, size_t n)
 {
     size_t  i;
 

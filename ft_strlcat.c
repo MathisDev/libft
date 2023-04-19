@@ -6,13 +6,13 @@
 /*   By: mamottet <mamottet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 09:11:01 by mamottet          #+#    #+#             */
-/*   Updated: 2023/04/13 11:26:16 by mamottet         ###   ########.fr       */
+/*   Updated: 2023/04/19 00:44:40 by Onizukkka        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t strlcat(char * dest, const char * src, size_t count)
+size_t ft_strlcat(char * dest, const char * src, size_t count)
 {
 	size_t	src_count;
 	size_t	dest_count;

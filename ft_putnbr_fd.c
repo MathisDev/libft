@@ -6,14 +6,13 @@
 /*   By: mamottet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:54:02 by mamottet          #+#    #+#             */
-/*   Updated: 2023/04/17 13:54:28 by mamottet         ###   ########.fr       */
+/*   Updated: 2023/04/18 11:43:00 by Onizukkka        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int
-	ft_abs(int nbr)
+static int	ft_abs(int nbr)
 {
 	return ((nbr < 0) ? -nbr : nbr);
 }
