@@ -6,7 +6,7 @@
 /*   By: mamottet <mamottet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 09:11:29 by mamottet          #+#    #+#             */
-/*   Updated: 2023/04/17 14:16:41 by mamottet         ###   ########.fr       */
+/*   Updated: 2023/04/19 16:54:58 by mamottet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,12 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t	count;
-
-	count = 0;
-	while(((s1[count] != '\0') && (s2[count] != '\0'))|| (count >= n))
+	while((*s1 || *s2) && n --)
 	{
-		if (s1[count] == s2[count])
-			count ++;
-		else
-			return(0);
+		if (*s1 != *s2)
+			return ((unsigned char)*s1 - (unsigned char)*s2);
+		s1++;
+		s2++;
 	}
-	return(1);
+	return(0);
 }

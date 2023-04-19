@@ -6,7 +6,7 @@
 /*   By: mamottet <mamottet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 09:10:54 by mamottet          #+#    #+#             */
-/*   Updated: 2023/04/18 17:34:42 by Onizukkka        ###   ########.fr       */
+/*   Updated: 2023/04/19 16:47:43 by mamottet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,13 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int	count;
-
-	count = 0;
-	while (s[count] != '\0')
+	while (*s != '\0')
 	{
-		if(s[count] != (char)c)
-			count ++;
-		else
-			return ((char *)&s[count]);
+		if(*s == (char)c)
+			return ((char*)s);
+		s++;
 	}
+	if ((char)c == '\0')
+		return ((char*)s);
 	return (NULL);
 }
