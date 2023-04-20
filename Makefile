@@ -6,7 +6,7 @@
 #    By: mamottet <mamottet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/11 13:06:31 by mamottet          #+#    #+#              #
-#    Updated: 2023/04/20 03:02:57 by mamottet         ###   ########.fr        #
+#    Updated: 2023/04/20 05:22:56 by Onizukkka        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,3 +73,7 @@ fclean:			clean
 			$(RM) $(NAME)
 
 re:			fclean all
+
+so:
+	$(CC) -fPIC $(FL) $(SRC)
+	gcc -shared -o libft.so $(SRCO)
