@@ -4,5 +4,7 @@
 int main()
 {
 	char const *s = "hello world blablabla";
-	printf("%s\n", ft_substr(s, 7, 5));
+	char	*res = ft_substr(s, 0, 420000);
+	printf("%s\n", res);
+	free(res);
 }

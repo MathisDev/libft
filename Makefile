@@ -6,7 +6,7 @@
 #    By: mamottet <mamottet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/11 13:06:31 by mamottet          #+#    #+#              #
-#    Updated: 2023/04/20 01:31:20 by Onizukkka        ###   ########.fr        #
+#    Updated: 2023/04/20 03:02:57 by mamottet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,7 @@ $(NAME):		$(SRCO)
 clean:
 				$(RM) $(SRCO)
 
-fclean:	
-			$(RM) $(NAME) $(SRCO)
+fclean:			clean	
+			$(RM) $(NAME)
 
 re:			fclean all
