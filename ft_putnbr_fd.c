@@ -3,40 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamottet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mamottet <mamottet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:54:02 by mamottet          #+#    #+#             */
-/*   Updated: 2023/04/18 11:43:00 by Onizukkka        ###   ########.fr       */
+/*   Updated: 2023/04/20 07:22:26 by mamottet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_abs(int nbr)
-{
-	return ((nbr < 0) ? -nbr : nbr);
-}
-
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	str[13];
-	int		is_neg;
-	int		length;
-
-	is_neg = (n < 0);
-	ft_bzero(str, 13);
-	if (n == 0)
-		str[0] = '0';
-	length = 0;
-	while (n != 0)
+	if (n == -2147483648)
 	{
-		str[length++] = '0' + ft_abs(n % 10);
-		n = (n / 10);
+		ft_putstr_fd("-2147483648", fd);
+		return ;
 	}
-	if (is_neg)
-		str[length] = '-';
-	else if (length > 0)
-		length--;
-	while (length >= 0)
-		write(fd, &str[length--], 1);
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		n = -n;
+	}
+	if (n <= 9)
+	{
+		ft_putchar_fd(n + '0', fd);
+	}
+	else
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
+	}
+	return ;
 }

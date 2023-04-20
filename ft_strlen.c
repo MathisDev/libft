@@ -6,13 +6,13 @@
 /*   By: mamottet <mamottet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 09:11:18 by mamottet          #+#    #+#             */
-/*   Updated: 2023/04/13 09:27:29 by mamottet         ###   ########.fr       */
+/*   Updated: 2023/04/20 07:03:27 by mamottet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 

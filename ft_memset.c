@@ -6,7 +6,7 @@
 /*   By: mamottet <mamottet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 09:10:38 by mamottet          #+#    #+#             */
-/*   Updated: 2023/04/20 01:52:31 by Onizukkka        ###   ########.fr       */
+/*   Updated: 2023/04/20 07:02:56 by mamottet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ void	*ft_memset(void *s, int c, size_t n)
 		i++;
 	}
 	s = str;
-	return ((void *) s);
+	return ((void *)s);
 }

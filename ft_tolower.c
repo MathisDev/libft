@@ -6,12 +6,11 @@
 /*   By: mamottet <mamottet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 09:12:13 by mamottet          #+#    #+#             */
-/*   Updated: 2023/04/13 18:19:26 by mamottet         ###   ########.fr       */
+/*   Updated: 2023/04/20 07:03:46 by mamottet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 int	ft_tolower(int c)
 {

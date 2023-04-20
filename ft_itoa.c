@@ -3,20 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamottet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mamottet <mamottet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 20:13:14 by mamottet          #+#    #+#             */
-/*   Updated: 2023/04/18 18:50:19 by Onizukkka        ###   ########.fr       */
+/*   Updated: 2023/04/20 07:09:16 by mamottet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "libft.h"
+#include "libft.h"
 
 void	*create_malloc(size_t size)
 {
 	void	*mem;
 
-	if (!(mem = malloc(size)))
+	mem = malloc(size);
+	if (!mem)
 		return (NULL);
 	ft_bzero(mem, size);
 	return (mem);
@@ -25,9 +26,10 @@ void	*create_malloc(size_t size)
 static char	*addnew(size_t size)
 {
 	long int	i;
-	char	*string;
+	char		*string;
 
-	if (!(string = create_malloc(size + 1)))
+	string = create_malloc(size + 1);
+	if (!string)
 		return (NULL);
 	i = 0;
 	while (i < size)
@@ -37,7 +39,7 @@ static char	*addnew(size_t size)
 
 static int	count_size(int n)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	if (n < 0)
@@ -50,7 +52,7 @@ static int	count_size(int n)
 	return (count);
 }
 
-char		*ft_itoa(int num)
+char	*ft_itoa(int num)
 {
 	char		*dst;
 	int			count;
@@ -62,7 +64,8 @@ char		*ft_itoa(int num)
 	count_dst = 0;
 	if (nb < 0 || count == 0)
 		count++;
-	if (!(dst = addnew(count)))
+	dst = addnew(count);
+	if (!dst)
 		return (NULL);
 	if (nb < 0)
 	{
@@ -70,9 +73,8 @@ char		*ft_itoa(int num)
 		dst[0] = '-';
 		count_dst++;
 	}
-	while (count > count_dst)
+	while (count-- > count_dst)
 	{
-		count--;
 		dst[count] = (nb % 10) + '0';
 		nb /= 10;
 	}

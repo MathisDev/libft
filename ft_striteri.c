@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Onizukkka <>                               +#+  +:+       +#+        */
+/*   By: mamottet <mamottet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 02:00:03 by Onizukkka         #+#    #+#             */
-/*   Updated: 2023/04/20 02:31:27 by Onizukkka        ###   ########.fr       */
+/*   Updated: 2023/04/20 07:03:19 by mamottet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "libft.h"
+#include "libft.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	unsigned int i;
+	unsigned int	i;
 
 	i = 0;
 	if (s)

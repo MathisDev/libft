@@ -6,7 +6,7 @@
 /*   By: mamottet <mamottet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 09:11:08 by mamottet          #+#    #+#             */
-/*   Updated: 2023/04/13 18:38:29 by mamottet         ###   ########.fr       */
+/*   Updated: 2023/04/20 08:30:50 by mamottet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t srcsize;
-	size_t i;
+	size_t	src_size;
+	size_t	i;
 
 	if (!dst || !src)
 		return (0);
-	srcsize = ft_strlen(src);
+	src_size = ft_strlen(src);
 	i = 0;
 	if (dstsize != 0)
 	{
@@ -30,6 +30,5 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		}
 		dst[i] = '\0';
 	}
-	return (srcsize);
+	return (src_size);
 }
-
