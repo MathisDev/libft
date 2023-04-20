@@ -1,14 +1,28 @@
-void ft_striteri(char *s, void (*f)(unsigned int, char*))
-{
-	unsigned int	count;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: Onizukkka <>                               +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/20 02:00:03 by Onizukkka         #+#    #+#             */
+/*   Updated: 2023/04/20 02:31:27 by Onizukkka        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-	count = 0;
-	if (s[0] == 0)
+# include "libft.h"
+
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+{
+	unsigned int i;
+
+	i = 0;
+	if (s)
 	{
-		while(s[count] != '\0')
+		while (s[i])
 		{
-			(*f)(count,&s[count]);
-			count ++;
+			(*f)(i, s + i);
+			i++;
 		}
 	}
 }

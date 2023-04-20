@@ -6,31 +6,32 @@
 /*   By: mamottet <mamottet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 09:11:39 by mamottet          #+#    #+#             */
-/*   Updated: 2023/04/13 18:32:57 by mamottet         ###   ########.fr       */
+/*   Updated: 2023/04/19 18:32:39 by Onizukkka        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+# include "libft.h"
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t n)
+char	*ft_strnstr(const char	*big, const char *little, size_t len)
 {
-	size_t		count;
+	size_t	count;
+	size_t	count_char;
+	size_t	l_len;
+	char	*str;
 
 	count = 0;
-	if (s2 == NULL || ft_strlen(s2) == 0)
-		return ((char *)s1);
-	if (ft_strlen(s2) > n)
-		return (NULL);
-	while (count < n)
+	str = (char *)big;
+	l_len = ft_strlen(little);
+	if (l_len == 0 || big == little)
+		return (str);
+	while (str[count] != '\0' && count < len)
 	{
-		if (ft_strncmp((char *)&s1[count], s2, ft_strlen(s2)) == 0)
-		{
-			if (count + ft_strlen(s2) > n)
-				return (NULL);
-			return ((char *)&s1[count]);
-		}
+		count_char = 0;
+		while (str[count + count_char] != '\0' && little[count_char] != '\0' && str[count + count_char] == little[count_char] && count + count_char < len)
+			count_char++;
+		if (count_char == l_len)
+			return (str + count);
 		count++;
 	}
-	return (NULL);
+	return (0);
 }
-

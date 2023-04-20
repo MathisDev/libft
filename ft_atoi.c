@@ -6,28 +6,34 @@
 /*   By: mamottet <mamottet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 09:05:22 by mamottet          #+#    #+#             */
-/*   Updated: 2023/04/18 17:40:07 by Onizukkka        ###   ########.fr       */
+/*   Updated: 2023/04/20 01:58:33 by Onizukkka        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+int	ft_atoi(const char *str)
 {
-	int	i;
-	int	is_neg;
-	int	res;
+	int neg;
+	int i;
+	int num;
 
-	if (nptr == 0)
-		return (0);
 	i = 0;
-	while (nptr[i] == '\t' || nptr[i] == '\n' || nptr[i] == '\v' || nptr[i] == '\f' || nptr[i] == '\r' || nptr[i] == ' ')
+	neg = 1;
+	num = 0;
+	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' || str[i] == '\v'
+			|| str[i] == '\f' || str[i] == '\r')
 		i++;
-	is_neg = (nptr[i] == '-') ? -1 : 1;
-	if (is_neg == -1 || nptr[i] == '+')
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			neg *= -1;
 		i++;
-	res = 0;
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-		res = (res * 10) + (nptr[i++] - '0');
-	return (res * is_neg);
+	}
+	while (str[i] >= 48 && str[i] <= 57)
+	{
+		num = num * 10 + (str[i] - 48);
+		i++;
+	}
+	return (num * neg);
 }
